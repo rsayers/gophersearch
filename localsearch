@@ -1,0 +1,22 @@
+#!/usr/local/bin/ruby
+
+require 'ferret'
+
+
+include Ferret
+
+def info(str)
+	"i#{str}\t\terror.host\t70"
+end
+ 
+index = Index::Index.new(:path => '/home/rsayers/gindex')
+
+terms = ARGV.join(' AND ').chomp
+results = 0
+puts info "Search Results for: #{terms}"
+index.search_each('content:('+terms+')') do |id, score|
+  results += 1
+  puts "#{index[id][:type]}#{index[id][:title]}	#{index[id][:path]}\t#{index[id][:host]}\t70"
+end
+puts info "#{results} results found"
+puts "7Search Again\t/localsearch\trobsayers.com\t70"

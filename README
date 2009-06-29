@@ -1,3 +1,16 @@
-This will eventually be a search engine for gopher,  it might actually be cool
+Files included
+-gopherclient.rb: a simple gopher client library
+-crawl.rb: A crawler which starts with 1 url and crawls until it finds no
+ more, currently hardcoded not to leave my domain
+-localsearch: Current local search script running on my site
 
-For now this is the result of about an hours worth of hacking, enjoy
+This is all experiental right now and is nothing more than an exercise in me 
+understanding search better.  I do however plan to make this a full live
+search engine indexing all of gopherspace.
+
+Ferret is used as the indexing engine as it just works great.  My grand scheme
+is to have a pagerank-like system in place to present the most relavent links
+first.
+
+The current issue I have is the load it will place on crawling certain sites
+with limited resources.  More research is being done on that right now
